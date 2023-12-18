@@ -1,0 +1,128 @@
+<nav class="navb">
+    <div class="container">
+        <div class="row">
+            <div class="col-8">
+                <i>
+                    <h1 class="cfe-title mt-3">Comprobantes Fiscales Electrónicos</h1>
+                </i>
+            </div>
+           <div class="col-4">
+            <a class="d-flex justify-content-end align-items-ejustify-content-end"><img
+                src="assets/images/ucu_white_logo.svg" width="70" height="64"></a>
+           </div>
+           
+        </div>
+    </div>
+</nav>
+
+<div class="container mt-4 mb-5">
+    <div class="row">
+        <div class="col-md-4">
+            <div class="d-flex justify-content-center align-items-center">
+                <div class="card">
+                    <span class="title">Obtener CFE Emitidos</span>
+                    <form class="form">
+                        <div class="group mt-3">
+                            <input placeholder="" type="text" required="">
+                            <label for="name">RUT</label>
+                        </div>
+                        <div class="group mt-2">
+                            <input placeholder="" type="text" required="">
+                            <label for="name">Usuario</label>
+                        </div>
+                        <div class="group mt-2">
+                            <input placeholder="" type="password" required="">
+                            <label for="name">Contraseña</label>
+                        </div>
+                        <div class="group mt-2">
+                            <input placeholder="" type="date" required="">
+                            <label for="name">Desde</label>
+                        </div>
+                        <div class="group mt-2">
+                            <input placeholder="" type="date" required="">
+                            <label for="name">Hasta</label>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-7 mt-4">
+                                <p>Selecciona el lenguaje:</p>
+                            </div>
+
+                            <div class="col-5 mtn-5">
+                                <mat-form-field class="custom-mat-form-field">
+                                    <mat-label>Choose an option</mat-label>
+                                    <select matNativeControl class="custom-select">
+                                        <option value="" selected></option>
+                                        <option value=".NET">.NET</option>
+                                        <option value="Python">Python</option>
+                                        <option value="Spring">Spring</option>
+                                    </select>
+                                </mat-form-field>
+                            </div>
+                        </div>
+
+
+                        <button type="submit">Obtener</button>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="col-md-8">
+            <div class="d-flex justify-content-center align-items-center">
+                <div class="card-columns">
+                    <span class="title">Seleccionar y ordenar columnas</span>
+
+                    <div class="row">
+                        <div class="col-6 example-container">
+                            <div class="d-flex justify-content-center align-items-center">
+                                <h2 class="mt-3">Columnas deseadas: </h2>
+                            </div>
+
+
+                            <div class="d-flex justify-content-center align-items-center">
+                                <div cdkDropList #columns="cdkDropList" [cdkDropListData]="columns_csv"
+                                    [cdkDropListConnectedTo]="[invalid]" class="example-list"
+                                    (cdkDropListDropped)="drop($event)">
+                                    @for (item of columns_csv; track item) {
+                                    <div class="example-box" cdkDrag>{{item}}</div>
+                                    }
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="col-6 example-container">
+                            <div class="d-flex justify-content-center align-items-center">
+                                <h2 class="mt-3">Columnas no deseadas: </h2>
+                            </div>
+
+
+                            <div class="d-flex justify-content-center align-items-center">
+                                <div cdkDropList #invalid="cdkDropList" [cdkDropListData]="invalid_list"
+                                    [cdkDropListConnectedTo]="[columns]" class="example-list"
+                                    (cdkDropListDropped)="drop($event)">
+                                    @for (item of invalid_list; track item) {
+                                    <div class="example-box" cdkDrag>{{item}}</div>
+                                    }
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+</div>
+
+
+
+
+
+<footer class="d-flex flex-wrap justify-content-center align-items-center py-3 my-4 border-top">
+    <p class="mb-0 text-white">&copy; Universidad Cátolica del Uruguay, 2023</p>
+</footer>
